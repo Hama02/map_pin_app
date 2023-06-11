@@ -20,3 +20,12 @@ exports.getAllPins = async (req, res) => {
     res.status(404).json(err);
   }
 };
+
+exports.deletePin = async (req, res) => {
+  try {
+    await Pin.deleteOne({ title: req.params.title });
+    res.status(200).json("success");
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
