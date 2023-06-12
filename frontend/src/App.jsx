@@ -42,7 +42,7 @@ function App() {
   };
 
   const handleDelete = async (title) => {
-    await axios.delete(`http://localhost:8000/api/pins/${title}`);
+    await axios.delete(`https://map-pinner.onrender.com/api/pins/${title}`);
     setPins(pins.filter((pin) => pin.title !== title));
   };
 
@@ -63,7 +63,10 @@ function App() {
     };
 
     try {
-      const res = await axios.post("http://localhost:8000/api/pins", newPin);
+      const res = await axios.post(
+        "https://map-pinner.onrender.com/api/pins",
+        newPin
+      );
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -74,7 +77,7 @@ function App() {
   useEffect(() => {
     const getPins = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/pins");
+        const res = await axios.get("https://map-pinner.onrender.com/api/pins");
         setPins(res.data);
       } catch (err) {
         console.log(err);

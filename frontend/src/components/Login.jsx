@@ -19,7 +19,7 @@ const Login = ({ setShowLogin, setCurrentUser }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/users/login",
+        "https://map-pinner.onrender.com/api/users/login",
         user
       );
       localStorage.setItem("user", res.data.username);
