@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const pinRouter = require("./routes/pin");
 const userRouter = require("./routes/user");
+const cors = require("cors");
 
 const app = express();
 const port = 8000;
 
 app.use(express.json());
+app.use(cors());
 
 dotenv.config();
 
